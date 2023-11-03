@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasiansa Madagasikara</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: olive;
+        }
+
+        header {
+            background-color: #932435;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+        
+        
+        /* Vos autres styles */
+
+#logo {
+    float: left;
+    margin-right: 20px;
+}
+
+        
+
+        #search-form {
+            margin-top: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 5px;
+        }
+
+        #search-input {
+            padding: 5px;
+            flex: 1;
+            border: none;
+        }
+
+        #search-input:focus {
+            outline: none;
+        }
+
+        #search-button {
+            background-color: #932435;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+        }
+
+        nav {
+            background-color: #932435;
+            color: white;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        article {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        article img {
+            max-width: 150px;
+            height: auto;
+            margin-right: 15px;
+            flex: 0 0 auto;
+            border-radius: 5px;
+        }
+
+        article div {
+            flex: 1 1 auto;
+        }
+
+        article h2 {
+            margin-top: 0;
+        }
+
+        /* Styles pour la barre de recherche */
+        #search-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        
+        
+        
+        <h1>Gasiansa Madagasikara</h1>
+        <p>Nombre de visiteurs : <span id="visitor-count">573</span></p>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Rechercher...">
+            <button type="submit" id="search-button">Rechercher</button>
+        </form>
+    </header>
+
+    <main>
+        <!-- Contenu éducatif ici -->
+        <article>
+            <img src="image_article1.jpg" alt="Image Article 1">
+            <div>
+                <h2>Tongasoa | Welcome</h2>
+                <p>
+                    Contact 📶
+                    
+            +261385174655
+            +261327546152
+                </p>
+            </div>
+        </article>
+
+        <article>
+            <img src="image_article2.jpg" alt="Image Article 2">
+            <div>
+                <h2>PROJET 1</h2>
+                <p>
+                    Loading...
+                </p>
+            </div>
+        </article>
+
+        <article>
+            <img src="image_article3.jpg" alt="Image Article 3">
+            <div>
+                <h2> PROJET 2</h2>
+                <p>
+                    Loading...
+                </p>
+            </div>
+        </article>
+
+        <article>
+            <img src="image_article4.jpg" alt="Image Article 4">
+            <div>
+                <h2> PROJET 3 </h2>
+                <p>
+                    Loading...
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p> &copy; Randriamandimby Mathieu Nobel 2023</p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const articles = document.getElementsByTagName('article');
+        let visitorCount = 0;
+        const visitorCountElement = document.getElementById('visitor-count');
+
+        // Fonction pour afficher le nombre de visiteurs
+        function updateVisitorCount() {
+            visitorCount++;
+            visitorCountElement.textContent = visitorCount;
+        }
+
+        // Événement d'écoute pour soumission du formulaire de recherche
+        document.getElementById('search-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const searchTerm = searchInput.value.toLowerCase();
+            for (const article of articles) {
+                const articleTitle = article.querySelector('h2').textContent.toLowerCase();
+                if (articleTitle.includes(searchTerm)) {
+                    article.style.display = 'flex';
+                } else {
+                    article.style.display = 'none';
+                }
+            }
+        });
+
+        // Événement d'écoute pour mise à jour du nombre de visiteurs
+        document.addEventListener('DOMContentLoaded', updateVisitorCount);
+    </script>
+</body>
+
+</html>
