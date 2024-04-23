@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,6 @@
             background-color: #3A8EBA;
             position: relative;
         }
-
         header {
             background-color: #3A8EBA;
             color: white;
@@ -21,34 +19,31 @@
             text-align: center;
             border-radius: 0 0 50% 50%;
         }
-
         #logo {
             display: block;
             margin: 0 auto 20px;
             max-width: 100%;
             height: auto;
         }
-
         #search-form {
             margin-top: 30px;
             overflow: hidden;
             text-align: center;
+            max-width: 500px; /* Limitation de la largeur pour centrer */
+            margin: 0 auto; /* Centrage horizontal */
         }
-
         #search-input {
             padding: 12px 20px;
             border: none;
             border-radius: 30px;
-            width: 70%;
-            max-width: 500px;
+            width: calc(100% - 100px); /* Ajustement pour la longueur */
+            max-width: 400px; /* Limiter la longueur pour centrer */
             font-size: 18px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         #search-input:focus {
             outline: none;
         }
-
         #search-button {
             background-color: #3A8EBA;
             color: white;
@@ -59,48 +54,44 @@
             font-size: 18px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         main {
             padding: 20px;
             padding-bottom: 100px; /* Ajout de marge pour le footer */
             flex: 1 0 auto;
         }
-
         article {
             display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: row; /* Alignement horizontal des éléments */
+            align-items: center; /* Centrage vertical des éléments */
             margin-bottom: 50px;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             padding: 15px;
+            width: calc(100% - 40px); /* Ajustement pour l'écran d'iPhone X */
+            max-width: 500px; /* Limiter la largeur pour s'adapter aux écrans */
+            margin: 0 auto 20px; /* Centrer horizontalement et ajouter un espace en dessous */
         }
-
         article img {
-            max-width: 150px;
+            max-width: 100px; /* Réduire la taille de l'image */
             height: auto;
-            margin-right: 15px;
-            flex: 0 0 auto;
             border-radius: 5px;
+            margin-right: 20px; /* Espacement entre l'image et le texte */
         }
-
         article div {
-            flex: 1 1 auto;
+            flex: 1; /* Le texte occupe tout l'espace disponible */
         }
-
         article h2 {
-            margin-top: 0;
             font-size: 24px;
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-top: 0;
         }
-
         article p {
             font-size: 18px;
             color: #666;
+            margin-top: 10px; /* Ajouter de l'espace en haut du paragraphe */
         }
-
         footer {
             background-color: #1F618D;
             color: white;
@@ -113,22 +104,18 @@
             bottom: 0;
             width: 100%;
         }
-
         footer p {
             margin: 0;
         }
-
         .social-links {
             margin-top: 10px;
         }
-
         .social-links a {
             color: white;
             text-decoration: none;
             margin: 0 10px;
             font-size: 24px;
         }
-
         #toTopBtn {
             display: none;
             position: fixed;
@@ -146,23 +133,22 @@
         }
     </style>
 </head>
-
 <body>
     <header>
         <img id="logo" src="couverture.png" style="max-width: 300px;">
-        <form id="search-form">
-            <input type="text" id="search-input" placeholder="Rechercher...">
-            <button type="submit" id="search-button">Rechercher</button>
+        <form id="search-form" onsubmit="return false;">
+            <input type="text" id="search-input" placeholder="Rechercher..." oninput="suggestArticles(this.value)">
+            <button type="button" id="search-button">Rechercher</button>
         </form>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Contenu éducatif ici -->
         <article>
             <img src="image_article1.jpg" alt="Image Article 1">
             <div>
                 <h2>Tongasoa</h2>
-                <p>Contact 📶 +261 38 51 746 55</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut convallis leo. Phasellus a mauris at lectus dapibus rutrum.</p>
             </div>
         </article>
 
@@ -170,7 +156,7 @@
             <img src="image_article2.jpg" alt="Image Article 2">
             <div>
                 <h2>PROJET 1</h2>
-                <p>Loading...</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac arcu id leo tincidunt commodo.</p>
             </div>
         </article>
 
@@ -178,7 +164,7 @@
             <img src="image_article3.jpg" alt="Image Article 3">
             <div>
                 <h2>PROJET 2</h2>
-                <p>Loading...</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies justo vitae velit efficitur feugiat.</p>
             </div>
         </article>
 
@@ -186,7 +172,7 @@
             <img src="image_article4.jpg" alt="Image Article 4">
             <div>
                 <h2>PROJET 3</h2>
-                <p>Loading...</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend efficitur magna, non dignissim nisi.</p>
             </div>
         </article>
     </main>
@@ -203,6 +189,35 @@
     <button onclick="scrollToTop()" id="toTopBtn" title="Go to top">↑</button>
 
     <script>
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        function suggestArticles(keyword) {
+            // Logic to suggest articles based on keyword
+            // For simplicity, let's assume articles are stored in an array
+            const articles = [
+                { title: "Tongasoa", url: "article1.html" },
+                { title: "PROJET 1", url: "article2.html" },
+                { title: "PROJET 2", url: "article3.html" },
+                { title: "PROJET 3", url: "article4.html" }
+            ];
+
+            const suggestions = articles.filter(article => article.title.toLowerCase().includes(keyword.toLowerCase()));
+
+            const searchResults = document.getElementById('search-results');
+            searchResults.innerHTML = '';
+
+            suggestions.forEach(article => {
+                const link = document.createElement('a');
+                link.href = article.url;
+                link.textContent = article.title;
+                link.style.display = 'block';
+                searchResults.appendChild(link);
+            });
+        }
+
         window.onscroll = function() { scrollFunction() };
 
         function scrollFunction() {
@@ -213,11 +228,6 @@
             }
         }
 
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-        
         // Animation de défilement fluide
         document.getElementById("toTopBtn").addEventListener("click", function() {
             document.documentElement.style.scrollBehavior = "smooth";
@@ -227,5 +237,4 @@
         });
     </script>
 </body>
-
 </html>
