@@ -6,11 +6,12 @@
     <title>Gasiansa Madagasikara</title>
     <style>
         body {
-            font-family: 'Garamond', serif;
+            font-family: 'Comic Sans MS', cursive;
             margin: 0;
             padding: 0;
-            background-color: #3A8EBA;
+            background-color: #3A8EBA; /* Couleur bleue */
             position: relative;
+            color: white; /* Couleur du texte */
         }
         header {
             background-color: #3A8EBA;
@@ -18,41 +19,13 @@
             padding: 20px;
             text-align: center;
             border-radius: 0 0 50% 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 40px rgba(255, 255, 255, 0.3) inset; /* Ombre jaune blanchâtre */
         }
         #logo {
             display: block;
             margin: 0 auto 20px;
             max-width: 100%;
             height: auto;
-        }
-        #search-form {
-            margin-top: 30px;
-            overflow: hidden;
-            text-align: center;
-            max-width: 500px; /* Limitation de la largeur pour centrer */
-            margin: 0 auto; /* Centrage horizontal */
-        }
-        #search-input {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 30px;
-            width: calc(100% - 100px); /* Ajustement pour la longueur */
-            max-width: 400px; /* Limiter la longueur pour centrer */
-            font-size: 18px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        #search-input:focus {
-            outline: none;
-        }
-        #search-button {
-            background-color: #3A8EBA;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 18px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         main {
             padding: 20px;
@@ -66,14 +39,14 @@
             margin-bottom: 50px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.3) inset; /* Ombre jaune blanchâtre */
             padding: 15px;
             width: calc(100% - 40px); /* Ajustement pour l'écran d'iPhone X */
-            max-width: 500px; /* Limiter la largeur pour s'adapter aux écrans */
+            max-width: 650px; /* Limiter la largeur pour s'adapter aux écrans, agrandi de 65% */
             margin: 0 auto 20px; /* Centrer horizontalement et ajouter un espace en dessous */
         }
         article img {
-            max-width: 100px; /* Réduire la taille de l'image */
+            max-width: 175px; /* Réduire la taille de l'image de 75px */
             height: auto;
             border-radius: 5px;
             margin-right: 20px; /* Espacement entre l'image et le texte */
@@ -86,11 +59,14 @@
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             margin-top: 0;
+            font-family: 'Comic Sans MS', cursive;
+            color: #333;
         }
         article p {
             font-size: 18px;
             color: #666;
             margin-top: 10px; /* Ajouter de l'espace en haut du paragraphe */
+            font-family: 'Comic Sans MS', cursive;
         }
         footer {
             background-color: #1F618D;
@@ -115,6 +91,29 @@
             margin: 0 10px;
             font-size: 24px;
         }
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .header-button {
+            background-color: white;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            margin: 0 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.3) inset; /* Ombre jaune blanchâtre */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .header-button:hover {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
         #toTopBtn {
             display: none;
             position: fixed;
@@ -123,22 +122,35 @@
             z-index: 99;
             border: none;
             outline: none;
-            background-color: #3A8EBA;
+            background-color: #0074D9; /* Couleur bleue */
             color: white;
             cursor: pointer;
             padding: 15px;
             border-radius: 50%;
             font-size: 24px;
+            animation: bounce 2s ease infinite; /* Animation */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <img id="logo" src="couverture.png" style="max-width: 300px;">
-        <form id="search-form" onsubmit="return false;">
-            <input type="text" id="search-input" placeholder="Rechercher..." oninput="suggestArticles(this.value)">
-            <button type="button" id="search-button">Rechercher</button>
-        </form>
+        <!-- Boutons du header -->
+        <div class="header-buttons">
+            <a href="#" class="header-button">Education</a>
+            <a href="#" class="header-button">Creation</a>
+            <a href="#" class="header-button">Video</a>
+            <a href="#" class="header-button">Plus</a>
+        </div>
     </header>
 
     <main id="main-content">
@@ -191,30 +203,6 @@
         function scrollToTop() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
-        }
-
-        function suggestArticles(keyword) {
-            // Logic to suggest articles based on keyword
-            // For simplicity, let's assume articles are stored in an array
-            const articles = [
-                { title: "Tongasoa", url: "article1.html" },
-                { title: "PROJET 1", url: "article2.html" },
-                { title: "PROJET 2", url: "article3.html" },
-                { title: "PROJET 3", url: "article4.html" }
-            ];
-
-            const suggestions = articles.filter(article => article.title.toLowerCase().includes(keyword.toLowerCase()));
-
-            const searchResults = document.getElementById('search-results');
-            searchResults.innerHTML = '';
-
-            suggestions.forEach(article => {
-                const link = document.createElement('a');
-                link.href = article.url;
-                link.textContent = article.title;
-                link.style.display = 'block';
-                searchResults.appendChild(link);
-            });
         }
 
         window.onscroll = function() { scrollFunction() };
