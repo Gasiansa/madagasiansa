@@ -9,9 +9,8 @@
             font-family: 'Comic Sans MS', cursive;
             margin: 0;
             padding: 0;
-            background-color: #3A8EBA; /* Couleur bleue */
-            position: relative;
-            color: white; /* Couleur du texte */
+            background-color: #3A8EBA;
+            color: white;
         }
         header {
             background-color: #3A8EBA;
@@ -19,7 +18,7 @@
             padding: 20px;
             text-align: center;
             border-radius: 0 0 50% 50%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 40px rgba(255, 255, 255, 0.3) inset; /* Ombre jaune blanchâtre */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 40px rgba(255, 255, 255, 0.3) inset;
         }
         #logo {
             display: block;
@@ -29,30 +28,30 @@
         }
         main {
             padding: 20px;
-            padding-bottom: 100px; /* Ajout de marge pour le footer */
+            padding-bottom: 100px;
             flex: 1 0 auto;
         }
         article {
             display: flex;
-            flex-direction: row; /* Alignement horizontal des éléments */
-            align-items: center; /* Centrage vertical des éléments */
+            flex-direction: row;
+            align-items: center;
             margin-bottom: 50px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.3) inset; /* Ombre jaune blanchâtre */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.3) inset;
             padding: 15px;
-            width: calc(100% - 40px); /* Ajustement pour l'écran d'iPhone X */
-            max-width: 650px; /* Limiter la largeur pour s'adapter aux écrans, agrandi de 65% */
-            margin: 0 auto 20px; /* Centrer horizontalement et ajouter un espace en dessous */
+            width: calc(100% - 40px);
+            max-width: 650px;
+            margin: 0 auto 20px;
         }
         article img {
-            max-width: 175px; /* Réduire la taille de l'image de 75px */
+            max-width: 175px;
             height: auto;
             border-radius: 5px;
-            margin-right: 20px; /* Espacement entre l'image et le texte */
+            margin-right: 20px;
         }
         article div {
-            flex: 1; /* Le texte occupe tout l'espace disponible */
+            flex: 1;
         }
         article h2 {
             font-size: 24px;
@@ -65,7 +64,7 @@
         article p {
             font-size: 18px;
             color: #666;
-            margin-top: 10px; /* Ajouter de l'espace en haut du paragraphe */
+            margin-top: 10px;
             font-family: 'Comic Sans MS', cursive;
         }
         footer {
@@ -73,9 +72,9 @@
             color: white;
             padding: 20px 0;
             text-align: center;
-            font-size: 16px; /* Réduction de la taille du texte */
-            border-radius: 0; /* Supprimer le border-radius pour occuper toute la largeur */
-            position: fixed; /* Changez la position en fixe */
+            font-size: 16px;
+            border-radius: 0;
+            position: fixed;
             bottom: 0;
             width: 100%;
         }
@@ -105,13 +104,35 @@
             font-size: 18px;
             margin: 0 10px;
             text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.3) inset; /* Ombre jaune blanchâtre */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 255, 255, 0.3) inset;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .header-button:hover {
             background-color: #f1f1f1;
             color: #333;
+        }
+
+        .article-buttons {
+            margin-top: 10px;
+        }
+
+        .article-button {
+            background-color: white;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-right: 10px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .article-button:hover {
+            background-color: #f1f1f1;
+            color: #333;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         #toTopBtn {
@@ -122,13 +143,13 @@
             z-index: 99;
             border: none;
             outline: none;
-            background-color: #0074D9; /* Couleur bleue */
+            background-color: #0074D9;
             color: white;
             cursor: pointer;
             padding: 15px;
             border-radius: 50%;
             font-size: 24px;
-            animation: bounce 2s ease infinite; /* Animation */
+            animation: bounce 2s ease infinite;
         }
 
         @keyframes bounce {
@@ -144,7 +165,6 @@
 <body>
     <header>
         <img id="logo" src="couverture.png" style="max-width: 300px;">
-        <!-- Boutons du header -->
         <div class="header-buttons">
             <a href="#" class="header-button">Education</a>
             <a href="#" class="header-button">Creation</a>
@@ -154,12 +174,15 @@
     </header>
 
     <main id="main-content">
-        <!-- Contenu éducatif ici -->
         <article>
             <img src="image_article1.jpg" alt="Image Article 1">
             <div>
                 <h2>Tongasoa</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut convallis leo. Phasellus a mauris at lectus dapibus rutrum.</p>
+                <div class="article-buttons">
+                    <a href="lien_vers_pdf1.pdf" class="article-button">PDF</a>
+                    <a href="lien_vers_videos1.html" class="article-button">VIDEOS</a>
+                </div>
             </div>
         </article>
 
@@ -168,6 +191,10 @@
             <div>
                 <h2>PROJET 1</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac arcu id leo tincidunt commodo.</p>
+                <div class="article-buttons">
+                    <a href="lien_vers_pdf2.pdf" class="article-button">PDF</a>
+                    <a href="lien_vers_videos2.html" class="article-button">VIDEOS</a>
+                </div>
             </div>
         </article>
 
@@ -176,6 +203,10 @@
             <div>
                 <h2>PROJET 2</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultricies justo vitae velit efficitur feugiat.</p>
+                <div class="article-buttons">
+                    <a href="lien_vers_pdf3.pdf" class="article-button">PDF</a>
+                    <a href="lien_vers_videos3.html" class="article-button">VIDEOS</a>
+                </div>
             </div>
         </article>
 
@@ -184,6 +215,10 @@
             <div>
                 <h2>PROJET 3</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend efficitur magna, non dignissim nisi.</p>
+                <div class="article-buttons">
+                    <a href="lien_vers_pdf4.pdf" class="article-button">PDF</a>
+                    <a href="lien_vers_videos4.html" class="article-button">VIDEOS</a>
+                </div>
             </div>
         </article>
     </main>
@@ -194,7 +229,7 @@
             <a href="#">Twitter</a>
             <a href="#">Instagram</a>
         </div>
-        <p>&copy; Randriamandimby Mathieu Nobel 2023</p>
+        <p>&copy; Randriamandimby Mathieu Nobel & Cie</p>
     </footer>
 
     <button onclick="scrollToTop()" id="toTopBtn" title="Go to top">↑</button>
@@ -215,12 +250,11 @@
             }
         }
 
-        // Animation de défilement fluide
         document.getElementById("toTopBtn").addEventListener("click", function() {
             document.documentElement.style.scrollBehavior = "smooth";
             setTimeout(() => {
                 document.documentElement.style.scrollBehavior = "auto";
-            }, 1000); // Rétablir le défilement normal après 1 seconde
+            }, 1000);
         });
     </script>
 </body>
