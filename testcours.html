@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Zoomable A4 Images</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .image-container {
+      width: calc(50% - 20px); /* Half of the container width minus margin */
+      max-width: 210mm; /* A4 width */
+      height: auto;
+      margin: 10px;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @media screen and (max-width: 768px) {
+      .image-container {
+        width: calc(100% - 20px);
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="image1.jpg" alt="Image 1">
+    </div>
+    <div class="image-container">
+      <img src="image2.jpg" alt="Image 2">
+    </div>
+    <!-- Add more image containers as needed -->
+  </div>
+</body>
+</html>
